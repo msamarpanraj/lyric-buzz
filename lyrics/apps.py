@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class LyricappConfig(AppConfig):
+class LyricsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'lyricapp'
+    name = 'lyrics'
