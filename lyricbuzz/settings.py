@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ne66)uv6tby^!*%i(tktt9d&8t5epc-wt9o(_dku+i#5ll^x$v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['8000-msamarpanraj-lyricbuzz-wguyhk6h9ky.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['8000-msamarpanraj-lyricbuzz-wguyhk6h9ky.ws.codeinstitute-ide.net','.herokuapp.com'
+]
 
 
 # Application definition
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'lyrics'
 ]
 
 MIDDLEWARE = [
