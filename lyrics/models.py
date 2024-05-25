@@ -14,6 +14,12 @@ class Lyric(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='added_lyrics')
+   
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return f"{self.song_name} | Posted by {self.user}"
 
 class Comment(models.Model):
     lyric = models.ForeignKey(
