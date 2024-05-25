@@ -1,7 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Lyric
 
 
 # Create your views here.
-def my_lyrics(request):
-    return HttpResponse("Hello, Welcome to Lyricbuzz!")
+
+class LyricList(generic.ListView):
+     queryset = Lyric.objects.all()
+     template_name = "lyric_list.html"
