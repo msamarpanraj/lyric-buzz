@@ -14,3 +14,13 @@ class Lyric(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='added_lyrics')
+
+class Comment(models.Model):
+    lyric = models.ForeignKey(
+        Lyric, on_delete=models.CASCADE, related_name="comments")
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="commenter")
+    comment_text = models.TextField()
+    approved = models.BooleanField(default=False)
+    created_on = models.DateTimeField(auto_now_add=True)
+
