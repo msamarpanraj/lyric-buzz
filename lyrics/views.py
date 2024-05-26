@@ -13,23 +13,29 @@ class LyricList(generic.ListView):
 
 def lyric_detail(request, slug):
     """
-    Display an individual :model:`blog.Post`.
+    Display an individual :model:`lyrics.Lyric`.
 
     **Context**
 
-    ``post``
-        An instance of :model:`blog.Post`.
+    ``lyric``
+        An instance of :model:`lyrics.Lyric`.
 
     **Template:**
 
-    :template:`blog/post_detail.html`
+    :template:`lyrics/lyric_detail.html`
     """
 
     queryset = Lyric.objects.filter(status=1)
     lyric = get_object_or_404(queryset, slug=slug)
-
+    comments = lyric.comments.all().order_by("-created_on")
+    comment_count = lyric.comments.filter(approved=True).count()
+    
     return render(
-        request,
-        "lyrics/lyric_detail.html",
-        {"lyric": lyric},
-    )
+    request,
+    "lyrics/lyric_detail.html",
+    {
+        "lyric": lyric,
+        "comments": comments,
+        "comment_count": comment_count,
+    },
+)
