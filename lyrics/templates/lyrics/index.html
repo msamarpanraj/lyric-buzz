@@ -18,7 +18,7 @@
                                     <p class="author">Posted By: {{ lyric.user }}</p>
                                 </div>
                             </div>
-                            <a href="#" class="post-link">
+                            <a href="{% url 'lyric_detail' lyric.slug %}" class="post-link">
                                 <h2 class="card-title">{{ lyric.song_name }}</h2>
                             </a>
 
