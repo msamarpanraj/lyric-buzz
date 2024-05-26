@@ -7,5 +7,8 @@ from .models import Lyric
 
 class LyricList(generic.ListView):
      queryset = Lyric.objects.filter(status=1)
-     template_name = "lyric_list.html"
+     template_name = "lyrics/index.html"
+     paginate_by = 6
+
+
 
