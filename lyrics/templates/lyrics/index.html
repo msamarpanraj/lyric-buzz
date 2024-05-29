@@ -25,63 +25,57 @@
     </div>
 </div>
 
-<div class="container-fluid">
+<!-- Lyrics Entries Section -->
+<div class="container mt-5 lyrics-list">
+    <h2 class="text-center mb-4">Recently Published Lyrics</h2>
     <div class="row">
-
-        <!-- Lyrics Entries Column -->
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for lyric in lyric_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in lyric.featured_image.url %}
-                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
-                                  alt="placeholder image">
-                                {% else %}
-                                <img class="card-img-top" src=" {{ lyric.featured_image.url }}"
-                                  alt="{{ lyric.song_name }}">
-                                {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Posted By: {{ lyric.user }}</p>
-                                </div>
-                            </div>
-                            <a href="{% url 'lyric_detail' lyric.slug %}" class="post-link">
-                                <h2 class="card-title">{{ lyric.song_name }}</h2>
-                            </a>
-
-                            <hr />
-                            <p class="card-text text-muted h6">{{ lyric.created_on}}
-                            </p>
-                        </div>
-                    </div>
+        {% for lyric in lyric_list %}
+        <div class="col-md-12 mb-3">
+            <div class="card lyric-item d-flex flex-row">
+                <div class="card-img-wrapper">
+                    {% if "placeholder" in lyric.featured_image.url %}
+                    <img class="card-img" src="{% static 'images/song-lyrics-icon.png' %}" alt="placeholder image">
+                    {% else %}
+                    <img class="card-img" src="{{ lyric.featured_image.url }}" alt="{{ lyric.song_name }}">
+                    {% endif %}
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
-
+                <div class="card-body">
+                    <a href="{% url 'lyric_detail' lyric.slug %}" class="post-link">
+                        <h5 class="card-title">{{ lyric.song_name }}</h5>
+                    </a>
+                    <p class="card-text"><i class="fas fa-user"></i> <strong>Posted By:</strong> {{ lyric.user }}</p>
+                    <p class="card-text"><i class="fas fa-music"></i> <strong>Album:</strong> {{ lyric.album }}</p>
+                    <p class="card-text"><i class="fas fa-pen"></i> <strong>Lyric Writer:</strong> {{ lyric.lyric_writer }}</p>
+                    <p class="card-text text-muted"><i class="fas fa-calendar-alt"></i> <strong>Published on:</strong> {{ lyric.created_on|date:"F j, Y" }}</p>
+                </div>
             </div>
         </div>
+        {% endfor %}
     </div>
+
     {% if is_paginated %}
     <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
+        <ul class="pagination justify-content-center mt-4">
             {% if page_obj.has_previous %}
-            <li>
-                <a href="?page={{ page_obj.previous_page_number }}"
-                  class="page-link">&laquo; PREV</a>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo; PREV</span>
+                </a>
             </li>
-            {% endif %} 
+            {% endif %}
             {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true">NEXT &raquo;</span>
+                </a>
+            </li>
             {% endif %}
         </ul>
     </nav>
     {% endif %}
 </div>
+
+
 
 <!-- index.html content ends here -->
 {% endblock %}
