@@ -4,6 +4,8 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Lyric, Comment
 from .forms import CommentForm
+from .forms import LyricSearchForm
+
 
 
 # Create your views here.
@@ -99,3 +101,22 @@ def comment_delete(request, slug, comment_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('lyric_detail', args=[slug]))
+
+
+def search_lyrics(request):
+    form = LyricSearchForm()
+    q = ''
+    results = []
+   
+    if 'q' in request.GET:
+        form = LyricSearchForm(request.GET)
+        if form.is_valid():
+            q = form.cleaned_data['q']
+            results = Lyric.objects.filter(song_name__icontains=q)
+
+    return render(request, 'lyrics/search_results.html',
+                  {'form': form,
+                   'q': q,
+                   'results': results})
+
+   

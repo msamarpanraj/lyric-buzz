@@ -1,0 +1,27 @@
+<!-- lyrics/search_results.html -->
+
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center">Search Results</h1>
+    <p class="text-center">Results for '{{ q }}'</p>
+    <p class="text-center">
+        {% with results.count as results %} {{ results }} result{{ results|pluralize }} found</p>
+        {% endwith %}
+<form method="GET" action="{% url 'search_lyrics' %}">
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+{% if results %}
+    <h2>Results:</h2>
+    <ul class="list-group">
+        {% for lyric in results %}
+        <li class="list-group-item">
+            <a href="{% url 'lyric_detail' lyric.slug %}">{{ lyric.song_name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No results found</p>
+{% endif %}
+{% endblock %}
+

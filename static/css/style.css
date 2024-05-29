@@ -46,6 +46,13 @@ body {
     background-color: #188181;
 }
 
+.bg-imgd {
+    background: url('../images/hero-bg.jpg');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .scale {
     width: 100%;
     height: auto;
@@ -158,4 +165,77 @@ body {
 
 .approval {
     color: rgb(222, 146, 168);
+}
+
+
+/* hero section styles */
+.bg-img {
+    background-image: url('../images/hero-bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.bg-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Styles for the search form */
+.hero-content .form-control {
+    width: 60%;
+    display: inline-block;
+    border: 2px solid #fff;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 30px 0 0 30px; /* Rounded corners for the left side */
+    transition: border-color 0.3s ease;
+}
+
+.hero-content .form-control:focus {
+    border-color: #FF711F; /* Change border color on focus */
+    box-shadow: none; /* Remove default focus shadow */
+}
+
+.hero-content .btn {
+    width: 30%;
+    display: inline-block;
+    background-color: #FF711F;
+    color: rgb(0, 0, 0);
+    border: 2px solid #FF711F;
+    border-radius: 0 30px 30px 0;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.hero-content .btn:hover {
+    background-color: #FF640A; 
+    border-color: #FF640A;
 }
