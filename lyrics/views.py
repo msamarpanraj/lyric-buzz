@@ -1,10 +1,12 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, redirect, get_object_or_404, reverse
+from django.contrib.auth.decorators import login_required
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Lyric, Comment
 from .forms import CommentForm
 from .forms import LyricSearchForm
+from .forms import LyricSubmissionForm
 
 
 
@@ -125,3 +127,21 @@ class AllLyricsList(generic.ListView):
     template_name = "lyrics/all_lyrics.html"
     context_object_name = 'lyric_list'
     paginate_by = 5
+
+
+@login_required
+def submit_lyric(request):
+    if request.method == "POST":
+        form = LyricSubmissionForm(request.POST, request.FILES)
+        if form.is_valid():
+            lyric = form.save(commit=False)
+            lyric.user = request.user
+            lyric.status = 2  
+            lyric.is_approved = False  
+            lyric.save()
+            messages.success(request, "Your lyric has been submitted and is awaiting approval.")
+            return redirect('home')
+    else:
+        form = LyricSubmissionForm()
+    return render(request, 'lyrics/submit_lyric.html', {'form': form})
+

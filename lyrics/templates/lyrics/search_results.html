@@ -1,27 +1,53 @@
 <!-- lyrics/search_results.html -->
 
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<h1 class="text-center">Search Results</h1>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Search Results</h1>
     <p class="text-center">Results for '{{ q }}'</p>
     <p class="text-center">
-        {% with results.count as results %} {{ results }} result{{ results|pluralize }} found</p>
+        {% with results.count as results %}
+            {{ results }} result{{ results|pluralize }} found
         {% endwith %}
-<form method="GET" action="{% url 'search_lyrics' %}">
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Search</button>
-</form>
-{% if results %}
-    <h2>Results:</h2>
-    <ul class="list-group">
-        {% for lyric in results %}
-        <li class="list-group-item">
-            <a href="{% url 'lyric_detail' lyric.slug %}">{{ lyric.song_name }}</a>
-        </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No results found</p>
-{% endif %}
-{% endblock %}
+    </p>
+    
+    {% if results %}
+        <div class="container mt-5 lyrics-list">
+            <h2 class="text-center mb-4">Results:</h2>
+            <div class="row">
+                {% for lyric in results %}
+                <div class="col-md-12 mb-3">
+                    <div class="card lyric-item d-flex flex-row">
+                        <div class="card-img-wrapper">
+                            {% if "placeholder" in lyric.featured_image.url %}
+                            <img class="card-img" src="{% static 'images/song-lyrics-icon.png' %}" alt="placeholder image">
+                            {% else %}
+                            <img class="card-img" src="{{ lyric.featured_image.url }}" alt="{{ lyric.song_name }}">
+                            {% endif %}
+                        </div>
+                        <div class="card-body">
+                            <a href="{% url 'lyric_detail' lyric.slug %}" class="post-link">
+                                <h5 class="card-title">{{ lyric.song_name }}</h5>
+                            </a>
+                            <p class="card-text"><i class="fas fa-user"></i> <strong>Posted By:</strong> {{ lyric.user }}</p>
+                            <p class="card-text"><i class="fas fa-music"></i> <strong>Album:</strong> {{ lyric.album }}</p>
+                            <p class="card-text"><i class="fas fa-pen"></i> <strong>Lyric Writer:</strong> {{ lyric.lyric_writer }}</p>
+                            <p class="card-text text-muted"><i class="fas fa-calendar-alt"></i> <strong>Published on:</strong> {{ lyric.created_on|date:"F j, Y" }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <p class="text-center">No results found</p>
+    {% endif %}
+</div>
 
+<form class="d-flex justify-content-center mb-4 search-form" method="GET" action="{% url 'search_lyrics' %}">
+    <input class="form-control search-input me-2" type="search" placeholder="Enter song name" aria-label="Search" name="q" value="{{ query }}">
+    <button class="btn btn-primary search-button" type="submit">Search</button>
+</form>
+
+{% endblock %}

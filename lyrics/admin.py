@@ -12,7 +12,10 @@ class PostAdmin(SummernoteModelAdmin):
 
 
 
-# Register your models here.
+    def approve_lyrics(self, request, queryset):
+        queryset.update(status=1)  # Change status to Published
+
+    actions = [approve_lyrics]
 
 admin.site.register(Comment)
 
