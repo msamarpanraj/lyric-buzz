@@ -1,4 +1,6 @@
 {% load static %}
+{% load crispy_forms_tags %}
+
 
 {% url 'home' as home_url %}
 {% url 'about' as about_url %}
@@ -44,6 +46,10 @@
                         <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
                             href="{% url 'home' %}">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == lyrics_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'lyrics_list' %}">All Lyrics</a>
+
                     <li class="nav-item">
                         <a class="nav-link
                           {% if request.path == about_url %}active{%endif%}" aria-current="page"

@@ -119,4 +119,9 @@ def search_lyrics(request):
                    'q': q,
                    'results': results})
 
-   
+
+class AllLyricsList(generic.ListView):
+    queryset = Lyric.objects.filter(status=1)
+    template_name = "lyrics/all_lyrics.html"
+    context_object_name = 'lyric_list'
+    paginate_by = 5

@@ -9,3 +9,4 @@ class CommentForm(forms.ModelForm):
 
 class LyricSearchForm(forms.Form):
     q = forms.CharField(label='Search for lyrics', max_length=100)
+

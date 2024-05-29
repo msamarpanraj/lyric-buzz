@@ -3,31 +3,9 @@
 
 {% block content %}
 
-<!-- index.html content starts here -->
-
-<!-- Hero Section -->
-
-
-<div class="container-fluid bg-img" title="welcome text">
-    <div class="row p-4">
-        <div class="container text-center text-white d-flex align-items-center justify-content-center" style="height: 100vh;">
-            <div class="hero-content">
-                <h1>Welcome to Lyric Buzz</h1>
-                <p>Share and discover lyrics of Christian hymns with fellow believers.</p>
-                <form class="d-flex justify-content-center mt-3" action="{% url 'search_lyrics' %}" method="GET">
-                    <input class="form-control" type="search" placeholder="Enter song name" aria-label="Search" name="q">
-                    <button class="btn btn-primary" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-
-       
-    </div>
-</div>
-
 <!-- Lyrics Entries Section -->
 <div class="container mt-5 lyrics-list">
-    <h2 class="text-center mb-4">Recently Published Lyrics</h2>
+    <h2 class="text-center mb-4">All Published Lyrics</h2>
     <div class="row">
         {% for lyric in lyric_list %}
         <div class="col-md-12 mb-3">
@@ -75,6 +53,4 @@
     {% endif %}
 </div>
 
-
-<!-- index.html content ends here -->
 {% endblock %}
