@@ -191,6 +191,27 @@ def profile(request):
     
     return render(request, 'lyrics/profile.html', {'form': form, 'page_obj': page_obj})
 
+@login_required
+def edit_lyric(request, slug):
+    lyric = get_object_or_404(Lyric, slug=slug, user=request.user)
+    if request.method == "POST":
+        form = LyricSubmissionForm(request.POST, request.FILES, instance=lyric)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your lyric has been updated.')
+            return redirect('profile')
+    else:
+        form = LyricSubmissionForm(instance=lyric)
+    return render(request, 'lyrics/edit_lyric.html', {'form': form, 'lyric': lyric})
+
+@login_required
+def delete_lyric(request, slug):
+    lyric = get_object_or_404(Lyric, slug=slug, user=request.user)
+    if request.method == "POST":
+        lyric.delete()
+        messages.success(request, 'Your lyric has been deleted.')
+        return redirect('profile')
+    return render(request, 'lyrics/confirm_delete_lyric.html', {'lyric': lyric})
     
 @login_required
 def like_lyric(request, slug):
