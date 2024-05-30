@@ -88,7 +88,38 @@ You can see full user stories [here](https://github.com/users/msamarpanraj/proje
 ### Wireframes
 Attach wireframes in this section
 ### Agile Methodology
-Explain agile approach to your project (itterations, user stories, tasks,acceptance criteria, labels, story points...) and insert screenshoots of your Kanban board 
+
+GitHub Projects
+
+GitHub Projects served as our primary Agile tool for managing this project. 
+We used GitHub Projects to plan, track, and manage user stories, issues, and tasks time to time via a basic Kanban board.
+
+To prioritize tasks efficiently within the available time, we employed the MoSCoW method, supplemented by custom GitHub project labels.
+
+<img src="documentation/kanban.jpg" width="800">
+
+
+GitHub Issues
+GitHub Issues was another crucial tool in our Agile process. Using a custom User Story Template, we managed and tracked user stories effectively.
+
+Open Issues
+
+<img src="documentation/issues should.jpg" width="800">
+
+Closed Issues
+
+<img src="documentation/issues closed.jpg" width="800">
+
+
+MoSCoW Prioritization
+We decomposed our Epics into smaller stories before prioritizing and implementing them. This approach allowed us to apply MoSCoW prioritization and labels to our user stories within the Issues tab.
+
+- Must Have: Tasks that are guaranteed to be delivered (maximum 60% of stories)
+- Should Have: Tasks that add significant value but are not vital (approximately 20% of stories)
+- Could Have: Tasks with a small impact if left out (20% of stories)
+- Won't Have: Tasks that are not a priority for this iteration
+This prioritization ensured that we focused on delivering the most critical features first while also planning for additional value-added tasks as time allowed.
+
 ### Typography
 Explain font you've used for your project
 ### Colour Scheme
