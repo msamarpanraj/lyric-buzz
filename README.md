@@ -1,112 +1,163 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Welcome to Lyric Buzz
 
-Welcome Samarpan Mathangi,
+<img src="documentation/website-screenshot.png" width="800">
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+See live site **[here](https://lyric-buzz-9522872a2b81.herokuapp.com/)**
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **April 26, 2024**
+## Table Of Contents:
+1. [Design & Planning](#design-&-planning)
+    * [User Stories](#user-stories)
+    * [Wireframes](#wireframes)
+    * [Agile Methodology](#agile-methodology)
+    * [Typography](#typography)
+    * [Colour Scheme](#colour-scheme)
+    * [Database Diagram](#database-diagram)
+    
+2. [Features](#features)
+    * [Navigation](#Navigation-bar)
+    * [Footer](#footer)
+    * [Home page](#home-page)
+    * [add your pages](#)
+    * [Login page](#profile-page)
+    * [Sign up page](#signup-page)
 
-## Gitpod Reminders
+3. [Technologies Used](#technologies-used)
+4. [Libraries](#libraries-used)
+5. [Testing](#testing)
+6. [Bugs](#bugs)
+7. [Deployment](#deployment)
+8. [Credits](#credits)
+9. [Acknowledgment](#acknowledgment)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Design & Planning:
+Project Title: Lyric Buzz
 
-`python3 -m http.server`
+Description: Lyric Buzz is a website dedicated to providing lyrics for Christian hymns. Users can search, view, like, comment on, and add lyrics. Admins can approve lyrics and comments to ensure content quality.
 
-A blue button should appear to click: _Make Public_,
+### Introduction
+Lyric Buzz is a dedicated platform for discovering and sharing the timeless beauty of Christian hymns. In a world where music often transcends the spoken word, hymns hold a special place, offering spiritual solace, communal connection, and profound reflection. Lyric Buzz aims to be the go-to resource for hymn enthusiasts, churchgoers, choir members, and anyone who finds inspiration in the lyrics of these spiritual songs.
 
-Another blue button should appear to click: _Open Browser_.
+Our platform not only provides a comprehensive collection of Christian hymn lyrics but also fosters a community where users can engage with the hymns they love. Whether you're searching for the lyrics of a specific hymn, exploring new ones, or contributing by adding your favorites, Lyric Buzz offers a seamless and enriching experience.
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+### Project Overview
+Lyric Buzz is built using the robust Django framework, ensuring a secure, scalable, and efficient platform. The website features user authentication, allowing users to register, log in, and manage their profiles. Once logged in, users can like, comment on, and add new hymn lyrics, subject to admin approval to maintain content quality.
 
-A blue button should appear to click: _Make Public_,
+### Key features of Lyric Buzz include:
 
-Another blue button should appear to click: _Open Browser_.
+**User Authentication:** Secure registration and login processes enable users to interact with the site’s features fully.
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+**Lyric Management:** Users can browse approved lyrics, add new ones, like their favorites, and engage with the community through comments.
 
-To log into the Heroku toolbelt CLI:
+**Admin Panel:** Administrators have the power to approve or reject lyrics and comments, ensuring the content remains appropriate and high-quality.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+**Search Functionality:** An intuitive search bar allows users to find hymns quickly by title or lyrics.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+**Responsive Design:** The site is designed to be accessible and user-friendly across all devices, from desktops to mobile phones.
 
-------
+### Goals
 
-## Release History
+The primary goal of Lyric Buzz is to create a welcoming and user-friendly environment where individuals can immerse themselves in the lyrical richness of Christian hymns. By providing easy access to these lyrics, we hope to enhance both personal devotion and communal worship experiences.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Target Audience
 
-**April 26 2024:** Update node version to 16
+Our target audience includes:
 
-**September 20 2023:** Update Python version to 3.9.17.
+- Church Members: Individuals looking for hymn lyrics for worship services and personal devotion.
+- Choir Members: Singers seeking lyrics for practice and performance.
+- Music Enthusiasts: People interested in the lyrical and historical aspects of Christian hymns.
+- General Public: Anyone who finds solace and inspiration in the words of hymns.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+### User Stories
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+Users
+- As a visitor, I can view the homepage so that I can understand the purpose of the site.
+- As a visitor, I can search for lyrics so that I can find specific hymns.
+- As a user, I can register for an account so that I can like, comment on, and add lyrics.
+- As a user, I can log in and out so that I can access my account features.
+- As a user, I can like lyrics so that I can show my appreciation for them.
+- As a user, I can comment on lyrics so that I can share my thoughts (admin approval required).
+- As a user, I can add new lyrics so that I can contribute to the site (admin approval required).
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+Admins
+- As an admin, I can approve or reject lyrics so that I can control the quality of content on the site.
+- As an admin, I can approve or reject comments so that I can maintain a positive community environment.
+- As an admin, I can manage all user content through the admin panel.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+You can see full user stories [here](https://github.com/users/msamarpanraj/projects/3) 
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Wireframes
+Attach wireframes in this section
+### Agile Methodology
+Explain agile approach to your project (itterations, user stories, tasks,acceptance criteria, labels, story points...) and insert screenshoots of your Kanban board 
+### Typography
+Explain font you've used for your project
+### Colour Scheme
+Screenshoot of the colour scheme for your project
+### DataBase Diagram
+Image of the database diagram for your project, you can name your database models as well and how they are connected
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## Features:
+Explain your features on the website,(navigation, pages, links, forms, input fields, CRUD....)
+## Technologies Used
+List of technologies used for your project
+## Testing
+Important part of your README!!!
+### Google's Lighthouse Performance
+Screenshots of certain pages and scores (mobile and desktop)
+### Browser Compatibility
+Check compatability with different browsers (Firefox, Edge, Chrome)
+### Responsiveness
+Screenshots of the responsivness, pick few devices
+### Code Validation
+Validate your code HTML, CSS, JS & Python (Validate all your templates, static files, views, forms, models, urls), display screenshots
+### Manual Testing user stories
+Test all your user stories, you an create table 
+User Story |  Test | Pass
+--- | --- | :---:
+paste here you user story | what is visible to the user and what action they should perform | &check;
+- attach screenshot
+### Manual Testing features
+Test all your features, you can use the same approach 
+| Status | feature
+|:-------:|:--------|
+| &check; | description
+- attach screenshot
+### Automated testing
+If you created automated tests, insert screenshoots of your coverage and number of tests
+## Bugs
+List of bugs and how did you fix them, you can create simple table
+| Bug | Fix
+|:-------:|:--------|
+|   |    |
+## Deployment
+This website is deployed to Heroku from a GitHub repository, the following steps were taken:
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+#### Creating Repository on GitHub
+- First make sure you are signed into [Github](https://github.com/) and go to the code institutes template, which can be found [here](https://github.com/Code-Institute-Org/gitpod-full-template).
+- Then click on **use this template** and select **Create a new repository** from the drop-down. Enter the name for the repository and click **Create repository from template**.
+- Once the repository was created, I clicked the green **gitpod** button to create a workspace in gitpod so that I could write the code for the site.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+#### Creating an app on Heroku
+- After creating the repository on GitHub, head over to [heroku](https://www.heroku.com/) and sign in.
+- On the home page, click **New** and **Create new app** from the drop down.
+- Give the app a name(this must be unique) and select a **region** I chose **Europe** as I am in Europe, Then click **Create app**.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+#### Create a database On ElephantSQL
+- Log into the [ElephantSQL](https://www.elephantsql.com/) website and click **Create new Instance**
+- Enter a **Name** and keep the plan as **Tiny Turtle Free**, then **tags** field can be left blank, Select a region closest to you, I selected **EU-West-1(Ireland)** as I'm in Ireland. Then click **Review** and afterward click **create an instance**.
+- On The Dashboard click on your database instance name.
+- You will see the details for your database instance, in the URL section click on the copy icon to copy the database URL.
+- Head over to gitpod and create a **Database URL** environment variable in your env.py file and set it equal to the copied URL.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+#### Deploying to Heroku.
+- Head back over to [heroku](https://www.heroku.com/) and click on your **app** and then go to the **Settings tab**
+- On the **settings page** scroll down to the **config vars** section and enter the **DATABASE_URL** which you will set equal to the elephantSQL URL, create **Secret key** this can be anything,
+**CLOUDINARY_URL** this will be set to your cloudinary url and finally **Port** which will be set to 8000.
+- Then scroll to the top and go to the **deploy tab** and go down to the **Deployment method** section and select **Github** and then sign into your account.
+- Below that in the **search for a repository to connect to** search box enter the name of your repository that you created on **GitHub** and click **connect**
+- Once it has been connected scroll down to the **Manual Deploy** and click **Deploy branch** when it has deployed you will see a **view app** button below and this will bring you to your newly deployed app.
+- Please note that when deploying manually you will have to deploy after each change you make to your repository.
+## Credits
+List of used resources for your website (text, images, snippets of code, projects....)
+## Acknowledgment
+Mention people who helped you with your project(mentor, colleagues...)
