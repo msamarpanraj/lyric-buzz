@@ -1,6 +1,8 @@
-from .models import Comment, Lyric
+from .models import Comment, Lyric, Profile
 from django import forms
 from django_summernote.widgets import SummernoteWidget
+from django.contrib.auth.models import User
+
 
 
 class CommentForm(forms.ModelForm):
@@ -20,4 +22,13 @@ class LyricSubmissionForm(forms.ModelForm):
             'lyrics': SummernoteWidget(),
         }
 
+class ProfileForm(forms.ModelForm):
+    profile_image = forms.ImageField(label='Profile Image', required=False, widget=forms.FileInput)
 
+    class Meta:
+        model = Profile
+        fields = ['profile_image', 'bio']
+        widgets = {
+            'bio': forms.Textarea(attrs={'maxlength': '500'}),  # assuming you want a 500 character limit
+        }
+        

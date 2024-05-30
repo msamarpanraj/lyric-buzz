@@ -45,9 +45,11 @@
     {% endif %}
 </div>
 
-<form class="d-flex justify-content-center mb-4 search-form" method="GET" action="{% url 'search_lyrics' %}">
-    <input class="form-control search-input me-2" type="search" placeholder="Enter song name" aria-label="Search" name="q" value="{{ query }}">
-    <button class="btn btn-primary search-button" type="submit">Search</button>
+<form class="d-flex justify-content-center mt-3" method="GET" action="{% url 'search_lyrics' %}">
+    <input class="form-control" type="search" placeholder="Enter song name" aria-label="Search" name="q" value="{{ query }}">
+    <button class="btn btn-primary" type="submit">Search</button>
 </form>
+
+
 
 {% endblock %}

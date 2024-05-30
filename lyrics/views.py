@@ -3,10 +3,12 @@ from django.contrib.auth.decorators import login_required
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Lyric, Comment
+from .models import Lyric, Comment, Profile
 from .forms import CommentForm
 from .forms import LyricSearchForm
 from .forms import LyricSubmissionForm
+from .forms import ProfileForm
+from django.core.paginator import Paginator
 
 
 
@@ -145,3 +147,46 @@ def submit_lyric(request):
         form = LyricSubmissionForm()
     return render(request, 'lyrics/submit_lyric.html', {'form': form})
 
+
+@login_required
+def profile(request):
+    profile = get_object_or_404(Profile, user=request.user)
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Your profile was successfully updated!')
+            return redirect('profile')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        user_form = UserForm(instance=request.user)
+        profile_form = ProfileForm(instance=profile)
+    
+    return render(request, 'profile.html', {
+        'user_form': user_form,
+        'profile_form': profile_form
+    })
+
+
+
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your profile has been updated successfully.')
+            return redirect('profile')
+    else:
+        form = ProfileForm(instance=request.user.profile)
+
+    lyrics = Lyric.objects.filter(user=request.user)
+    paginator = Paginator(lyrics, 10)  # Show 10 lyrics per page
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    return render(request, 'lyrics/profile.html', {'form': form, 'page_obj': page_obj})
