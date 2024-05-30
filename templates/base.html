@@ -1,3 +1,5 @@
+base.html
+
 {% load static %}
 {% load crispy_forms_tags %}
 
@@ -56,29 +58,34 @@
                         <a class="nav-link {% if request.path == lyrics_url %}active{% endif %}" aria-current="page"
                             href="{% url 'lyrics_list' %}">All Lyrics</a>
                     </li>
+                    <!-- Add this part for the navigation link -->
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == submit_lyric_url %}active{% endif %}" aria-current="page"
-                                    href="{% url 'submit_lyric' %}">Add a Lyric</a>
-                            </li>
-
+                        <a class="nav-link {% if request.path == submit_lyric_url %}active{% endif %}" aria-current="page" href="{% url 'submit_lyric' %}">Add Lyric</a>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'account_logout' %}">Logout</a>
+                        <a class="nav-link {% if request.path == profile_url %}active{% endif %}" aria-current="page" href="{% url 'profile' %}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'account_signup' %}">Register</a>
+                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'account_login' %}">Login</a>
+                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
                     </li>
+                   
+                   
                     {% endif %}
                 </ul>
+                <form class="form-inline my-2 my-lg-0" action="{% url 'search_lyrics' %}" method="get">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search lyrics" aria-label="Search" name="q">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
                 <span class="navbar-text text-muted">
-Christian Hyms                </span>
+         </span>
             </div>
         </div>
     </nav>
