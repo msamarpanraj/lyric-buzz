@@ -128,7 +128,18 @@ Screenshoot of the colour scheme for your project
 Image of the database diagram for your project, you can name your database models as well and how they are connected
 
 ## Features:
-Explain your features on the website,(navigation, pages, links, forms, input fields, CRUD....)
+Navigation Bar
+
+Footer
+
+Home Page
+URL: Home
+
+Description: The home page introduces the user to the site and allows them to search for lyrics.
+Features:
+Search Bar: Users can search for specific song lyrics.
+Recently Published Lyrics: Displays a list of the most recently added lyrics with details such as song name, posted by, album, lyric writer, and publication date.
+Navigation: Links to Home, About, All Lyrics, Register, and Login pages.
 ## Technologies Used
 List of technologies used for your project
 ## Testing
