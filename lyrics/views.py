@@ -190,3 +190,13 @@ def profile(request):
     page_obj = paginator.get_page(page_number)
     
     return render(request, 'lyrics/profile.html', {'form': form, 'page_obj': page_obj})
+
+    
+@login_required
+def like_lyric(request, slug):
+    lyric = get_object_or_404(Lyric, slug=slug)
+    if lyric.likes.filter(id=request.user.id).exists():
+        lyric.likes.remove(request.user)
+    else:
+        lyric.likes.add(request.user)
+    return redirect('lyric_detail', slug=slug)

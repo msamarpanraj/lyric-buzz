@@ -17,8 +17,14 @@ class Lyric(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='added_lyrics')    
-    is_approved = models.BooleanField(default=False)  
+    is_approved = models.BooleanField(default=False) 
+    likes = models.ManyToManyField(User, related_name='lyric_likes', blank=True) 
 
+    def total_likes(self):
+        return self.likes.count()
+
+    def __str__(self):
+        return self.song_name
     class Meta:
         ordering = ["-created_on"]
 

@@ -9,7 +9,7 @@
     <div class="row">
         {% for lyric in lyric_list %}
         <div class="col-md-12 mb-3">
-            <div class="card lyric-item d-flex flex-row">
+            <div class="card lyric-item d-flex">
                 <div class="card-img-wrapper">
                     {% if "placeholder" in lyric.featured_image.url %}
                     <img class="card-img" src="{% static 'images/song-lyrics-icon.png' %}" alt="placeholder image">

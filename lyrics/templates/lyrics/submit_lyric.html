@@ -15,7 +15,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <h1 class="text-center">Submit a Lyric</h1>
     <p class="text-center">Share your favorite lyrics with the world! Fill in the form below to submit a new lyric. Once approved by our admin, it will be published on our site.</p>
     <div class="row justify-content-center">
@@ -23,7 +23,7 @@
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="btn btn-primary w-100">Submit Lyric</button>
+                <button type="submit" class="btn btn-primary">Submit Lyric</button>
             </form>
         </div>
     </div>

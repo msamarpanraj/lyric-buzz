@@ -11,6 +11,7 @@ urlpatterns = [
     path('submit/', views.submit_lyric, name='submit_lyric'),
     path('profile/', views.profile, name='profile'),
     path('<slug:slug>/', views.lyric_detail, name='lyric_detail'),
+    path('like/<slug:slug>/', views.like_lyric, name='like_lyric'),
     path('<slug:slug>/edit_comment/<int:comment_id>', views.comment_edit, name='comment_edit'),
     path('<slug:slug>/delete_comment/<int:comment_id>', views.comment_delete, name='comment_delete'),
 ]

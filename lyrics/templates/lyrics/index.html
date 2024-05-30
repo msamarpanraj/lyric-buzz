@@ -15,13 +15,14 @@
                 <h1>Welcome to Lyric Buzz</h1>
                 <p>Share and discover lyrics of Christian hymns with fellow believers.</p>
                 <form class="d-flex justify-content-center mt-3" action="{% url 'search_lyrics' %}" method="GET">
-                    <input class="form-control" type="search" placeholder="Enter song name" aria-label="Search" name="q">
+                    <input class="form-control" type="search" placeholder="Enter song name" aria-label="Search"
+                        name="q">
                     <button class="btn btn-primary" type="submit">Search</button>
                 </form>
             </div>
         </div>
 
-       
+
     </div>
 </div>
 
@@ -31,7 +32,7 @@
     <div class="row">
         {% for lyric in lyric_list %}
         <div class="col-md-12 mb-3">
-            <div class="card lyric-item d-flex flex-row">
+            <div class="card lyric-item d-flex">
                 <div class="card-img-wrapper">
                     {% if "placeholder" in lyric.featured_image.url %}
                     <img class="card-img" src="{% static 'images/song-lyrics-icon.png' %}" alt="placeholder image">
@@ -45,8 +46,10 @@
                     </a>
                     <p class="card-text"><i class="fas fa-user"></i> <strong>Posted By:</strong> {{ lyric.user }}</p>
                     <p class="card-text"><i class="fas fa-music"></i> <strong>Album:</strong> {{ lyric.album }}</p>
-                    <p class="card-text"><i class="fas fa-pen"></i> <strong>Lyric Writer:</strong> {{ lyric.lyric_writer }}</p>
-                    <p class="card-text text-muted"><i class="fas fa-calendar-alt"></i> <strong>Published on:</strong> {{ lyric.created_on|date:"F j, Y" }}</p>
+                    <p class="card-text"><i class="fas fa-pen"></i> <strong>Lyric Writer:</strong>
+                        {{ lyric.lyric_writer }}</p>
+                    <p class="card-text text-muted"><i class="fas fa-calendar-alt"></i> <strong>Published on:</strong>
+                        {{ lyric.created_on|date:"F j, Y" }}</p>
                 </div>
             </div>
         </div>
