@@ -32,7 +32,7 @@
                         <a href="{% url 'edit_lyric' lyric.slug %}" class="btn btn-sm btn-outline-primary">Edit</a>
                         <form id="delete-form-{{ lyric.id }}" action="{% url 'delete_lyric' lyric.slug %}" method="post" style="display:inline;">
                             {% csrf_token %}
-                            <button type="button" class="btn btn-sm btn-outline-danger" onclick="showDeleteLyricModal('delete-form-{{ lyric.id }}')">Delete</button>
+                            <button type="button" class="btn btn-delete btn-sm btn-outline-danger" onclick="showDeleteLyricModal('delete-form-{{ lyric.id }}')">Delete</button>
                         </form>
                     </div>
                 </div>
