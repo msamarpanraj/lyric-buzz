@@ -1,26 +1,17 @@
 {% load static %}
 {% load crispy_forms_tags %}
-
-
 {% url 'home' as home_url %}
 {% url 'submit_lyric' as submit_lyric_url %}
-
 {% url 'about' as about_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
-
 <!DOCTYPE html>
 <html class="h-100" lang="en">
 
 <head>
     <title>Lyrics Buzz</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Google Fonts CSS -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -37,7 +28,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="sitename">LyricBuzz</span></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><span class="sitename">Lyric Buzz</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -53,8 +44,9 @@
                           {% if request.path == about_url %}active{%endif%}" aria-current="page"
                             href="{% url 'about' %}">About</a>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == lyrics_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'lyrics_list' %}">All Lyrics</a>
+                        <a class="nav-link 
+                          {% if request.resolver_match.url_name == 'lyrics_list' %}active{% endif %}"
+                            aria-current="page" href="{% url 'lyrics_list' %}">All Lyrics</a>
                     </li>
                     <!-- Add this part for the navigation link -->
                     {% if user.is_authenticated %}
@@ -63,7 +55,7 @@
                             aria-current="page" href="{% url 'submit_lyric' %}">Add Lyric</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == profile_url %}active{% endif %}" aria-current="page"
+                        <a class="nav-link {% if request.resolver_match.url_name == 'profile' %}active{% endif %}"
                             href="{% url 'profile' %}">My Profile</a>
                     </li>
                     <li class="nav-item">
@@ -92,7 +84,7 @@
             </div>
         </div>
     </nav>
-    <!-- displaying Django messages -->
+    <!-- displaying alert messages -->
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
