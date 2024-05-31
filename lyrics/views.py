@@ -116,7 +116,7 @@ def search_lyrics(request):
         form = LyricSearchForm(request.GET)
         if form.is_valid():
             q = form.cleaned_data['q']
-            results = Lyric.objects.filter(song_name__icontains=q)
+            results = Lyric.objects.filter(song_name__icontains=q, status=1)
 
     return render(request, 'lyrics/search_results.html',
                   {'form': form,
@@ -237,3 +237,4 @@ def custom_page_not_found(request, exception):
 
 def custom_server_error(request):
     return render(request, '500.html', status=500)
+
