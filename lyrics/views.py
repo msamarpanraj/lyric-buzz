@@ -130,6 +130,12 @@ class AllLyricsList(generic.ListView):
     context_object_name = 'lyric_list'
     paginate_by = 5
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['total_lyrics'] = Lyric.objects.filter(status=1).count()
+        return context
+
+
 
 @login_required
 def submit_lyric(request):
