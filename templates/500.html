@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}500 Internal Server Error{% endblock %}
+{% block content %}
+<div class="ontainer mt-5 mt-5 pt-5 h-100 text-center">
+    <h1>500 - Internal Server Error</h1>
+    <p class="lead">Sorry, but there was an error processing your request.</p>
+    <a class="btn btn-primary" href="{% url 'home' %}">Return Home</a>
+</div>
+{% endblock %}

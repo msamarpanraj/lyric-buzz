@@ -16,13 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
-
+from django.conf.urls import handler400, handler403, handler404, handler500
 
 urlpatterns = [
     path("about/", include("about.urls"), name="about-urls"),
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
-    path("", include("lyrics.urls"), name="lyrics-urls"),
+    path("", include("lyrics.urls"), name="lyrics-urls"),  
+
 ]
+
+handler400 = 'lyrics.views.custom_bad_request'
+handler403 = 'lyrics.views.custom_permission_denied'
+handler404 = 'lyrics.views.custom_page_not_found'
+handler500 = 'lyrics.views.custom_server_error'
