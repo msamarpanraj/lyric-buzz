@@ -383,6 +383,12 @@ body {
     background: antiquewhite;
     margin-top: 20px;
 }
+
+.d-flex {
+    display: flex !important;
+    gap: 5px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .hero-content h1 {
