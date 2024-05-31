@@ -16,7 +16,7 @@
                 <p>Share and discover lyrics of Christian hymns with fellow believers.</p>
                 <form class="d-flex justify-content-center mt-3" action="{% url 'search_lyrics' %}" method="GET">
                     <input class="form-control" type="search" placeholder="Enter song name" aria-label="Search"
-                        name="q">
+                        name="q" required>
                     <button class="btn btn-primary" type="submit">Search</button>
                 </form>
             </div>
