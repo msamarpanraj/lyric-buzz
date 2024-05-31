@@ -218,6 +218,10 @@ def like_lyric(request, slug):
     lyric = get_object_or_404(Lyric, slug=slug)
     if lyric.likes.filter(id=request.user.id).exists():
         lyric.likes.remove(request.user)
+        messages.success(request, 'You haved unliked this lyric.')
+
     else:
         lyric.likes.add(request.user)
+        messages.success(request, 'You haved liked this lyric.')
+
     return redirect('lyric_detail', slug=slug)
