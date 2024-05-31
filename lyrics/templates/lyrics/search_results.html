@@ -5,14 +5,15 @@
 {% block content %}
 <div class="container mt-5">
     <h1 class="text-center mb-4">Search Results</h1>
-    <p class="text-center">Results for '{{ q }}'</p>
+    <p class="text-center">Results for <b>{{ q }}</b></p>
+    
+    
+    {% if results %}
     <p class="text-center">
         {% with results.count as results %}
             {{ results }} result{{ results|pluralize }} found
         {% endwith %}
     </p>
-    
-    {% if results %}
         <div class="container mt-5 lyrics-list">
             <h2 class="text-center mb-4">Results:</h2>
             <div class="row">
@@ -46,10 +47,13 @@
 </div>
 <div class="container mb-5">
 <form class="d-flex justify-content-center mt-3" method="GET" action="{% url 'search_lyrics' %}">
-    <input class="form-control" type="search" placeholder="Enter song name" aria-label="Search" name="q" value="{{ query }}">
+    <input class="form-control" type="search" placeholder="Enter song name" aria-label="Search" name="q" value="{{ query }}" required>
     <button class="btn btn-primary" type="submit">Search</button>
 </form>
 </div>
+
+
+
 
 
 {% endblock %}
