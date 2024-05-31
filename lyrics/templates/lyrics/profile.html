@@ -24,11 +24,17 @@
         {% if page_obj %}
             {% for lyric in page_obj %}
             <div class="col-md-4 mb-4">
+               
                 <div class="card lyric-item">
                     <div class="card-body">
+                        {% if lyric.status == 1 %}
                         <a href="{% url 'lyric_detail' lyric.slug %}" class="post-link">
                             <h5 class="card-title">{{ lyric.song_name }}</h5>
                         </a>
+                        {% else %}
+                        <h5 class="card-title">{{ lyric.song_name }}</h5>
+                        <p class="approval">This lyric is awaiting admin approval</p>
+                        {% endif %}
                         <div class="d-flex mt-2">
                             <a href="{% url 'edit_lyric' lyric.slug %}" class="btn btn-sm btn-outline-primary">Edit</a>
                             <form id="delete-form-{{ lyric.id }}" action="{% url 'delete_lyric' lyric.slug %}" method="post" style="display:inline;">
@@ -47,6 +53,7 @@
             </div>
         {% endif %}
     </div>
+    
     
     {% if page_obj %}
 
