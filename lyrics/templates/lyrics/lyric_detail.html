@@ -4,24 +4,24 @@
 
 <div class="container mt-5">
   <div class="row">
-      <div class="col-md-12">
-          <h2>{{ lyric.song_name }}</h2>
-          <p><strong>Album:</strong> {{ lyric.album }}</p>
-          <p><strong>Written By:</strong> {{ lyric.lyric_writer }}</p>
-          <p><strong>Posted By:</strong> {{ lyric.user }}</p>
-          <p><strong>Posted On:</strong> {{ lyric.created_on|date:"F j, Y" }}</p>
-      </div>
+    <div class="col-md-12">
+      <h2>{{ lyric.song_name }}</h2>
+      <p><strong>Album:</strong> {{ lyric.album }}</p>
+      <p><strong>Written By:</strong> {{ lyric.lyric_writer }}</p>
+      <p><strong>Posted By:</strong> {{ lyric.user }}</p>
+      <p><strong>Posted On:</strong> {{ lyric.created_on|date:"F j, Y" }}</p>
+    </div>
   </div>
   <div class="row mt-5">
     <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <h3>Lyrics</h3>
-                <pre>{{ lyric.lyrics | safe }}</pre>
-            </div>
+      <div class="card">
+        <div class="card-body">
+          <h3>Lyrics</h3>
+          <pre>{{ lyric.lyrics | safe }}</pre>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
 </div>
 
@@ -29,32 +29,32 @@
 
 
 <div class="container">
-  
+
   <!-- Displaying count of likes and comments -->
   <div class="row">
-  
+
     <div class="col-12">
       <div class="row mt-4">
-      
+
         <div class="col-12 d-flex justify-content-between align-items-center">
-            <form action="{% url 'like_lyric' lyric.slug %}" method="POST">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-like">
-                    {% if user in lyric.likes.all %}
-                    <i class="fas fa-thumbs-down"></i> Unlike
-                    {% else %}
-                    <i class="fas fa-thumbs-up"></i> Like
-                    {% endif %}
-                </button>
-            </form>
-            <p>{{ lyric.total_likes }} likes</p>
-            <strong class="text-secondary">
-              <i class="far fa-comments"></i> {{ comment_count }}
-            </strong>
+          <form action="{% url 'like_lyric' lyric.slug %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-like">
+              {% if user in lyric.likes.all %}
+              <i class="fas fa-thumbs-down"></i> Unlike
+              {% else %}
+              <i class="fas fa-thumbs-up"></i> Like
+              {% endif %}
+            </button>
+          </form>
+          <p>{{ lyric.total_likes }} likes</p>
+          <strong class="text-secondary">
+            <i class="far fa-comments"></i> {{ comment_count }}
+          </strong>
         </div>
-    </div>
+      </div>
       <hr>
-      
+
     </div>
   </div>
   <!-- Displaying Comments -->

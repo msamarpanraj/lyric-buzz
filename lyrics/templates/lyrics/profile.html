@@ -4,57 +4,61 @@
 {% block content %}
 <div class="container mt-5">
     <!-- Notification Messages -->
-    
-    
+
+
     <div class="row">
         <div class="col-md-4 text-center">
-            <img src="{% if user.profile.profile_image %}{{ user.profile.profile_image.url }}{% else %}{% static 'images/default_profile.jpg' %}{% endif %}" alt="{{ user.username }}" class="img-fluid rounded-circle profile-img">
+            <img src="{% if user.profile.profile_image %}{{ user.profile.profile_image.url }}{% else %}{% static 'images/default_profile.jpg' %}{% endif %}"
+                alt="{{ user.username }}" class="img-fluid rounded-circle profile-img">
         </div>
         <div class="col-md-8">
             <h2>{{ user.username|upper }}</h2>
             <p><strong>Email:</strong> {{ user.email }}</p>
             <p><strong>Bio:</strong> {{ user.profile.bio }}</p>
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit Profile</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">Edit
+                Profile</button>
         </div>
     </div>
 
- 
+
     <h3 class="mt-5 mb-4 text-center">Lyrics Posted by You</h3>
     <div class="row">
         {% if page_obj %}
-            {% for lyric in page_obj %}
-            <div class="col-md-4 mb-4">
-               
-                <div class="card lyric-item">
-                    <div class="card-body">
-                        {% if lyric.status == 1 %}
-                        <a href="{% url 'lyric_detail' lyric.slug %}" class="post-link">
-                            <h5 class="card-title">{{ lyric.song_name }}</h5>
-                        </a>
-                        {% else %}
+        {% for lyric in page_obj %}
+        <div class="col-md-4 mb-4">
+
+            <div class="card lyric-item">
+                <div class="card-body">
+                    {% if lyric.status == 1 %}
+                    <a href="{% url 'lyric_detail' lyric.slug %}" class="post-link">
                         <h5 class="card-title">{{ lyric.song_name }}</h5>
-                        <p class="approval">This lyric is awaiting admin approval</p>
-                        {% endif %}
-                        <div class="d-flex mt-2">
-                            <a href="{% url 'edit_lyric' lyric.slug %}" class="btn btn-sm btn-outline-primary">Edit</a>
-                            <form id="delete-form-{{ lyric.id }}" action="{% url 'delete_lyric' lyric.slug %}" method="post" style="display:inline;">
-                                {% csrf_token %}
-                                <button type="button" class="btn btn-delete btn-sm btn-outline-danger" onclick="showDeleteLyricModal('delete-form-{{ lyric.id }}')">Delete</button>
-                            </form>
-                        </div>
+                    </a>
+                    {% else %}
+                    <h5 class="card-title">{{ lyric.song_name }}</h5>
+                    <p class="approval">This lyric is awaiting admin approval</p>
+                    {% endif %}
+                    <div class="d-flex mt-2">
+                        <a href="{% url 'edit_lyric' lyric.slug %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                        <form id="delete-form-{{ lyric.id }}" action="{% url 'delete_lyric' lyric.slug %}" method="post"
+                            style="display:inline;">
+                            {% csrf_token %}
+                            <button type="button" class="btn btn-delete btn-sm btn-outline-danger"
+                                onclick="showDeleteLyricModal('delete-form-{{ lyric.id }}')">Delete</button>
+                        </form>
                     </div>
                 </div>
             </div>
-            {% endfor %}
+        </div>
+        {% endfor %}
         {% else %}
-            <div class="col-12">
-                <p>You have not added any lyrics yet.</p>
-                <a href="{% url 'submit_lyric' %}" class="btn btn-primary">Add your first lyric</a>
-            </div>
+        <div class="col-12">
+            <p>You have not added any lyrics yet.</p>
+            <a href="{% url 'submit_lyric' %}" class="btn btn-primary">Add your first lyric</a>
+        </div>
         {% endif %}
     </div>
-    
-    
+
+
     {% if page_obj %}
 
     <!-- Pagination -->
