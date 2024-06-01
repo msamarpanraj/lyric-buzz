@@ -75,7 +75,7 @@
             </span> wrote:
           </p>
           <div id="comment{{ comment.id }}">
-            <i>{{ comment.comment_text | linebreaks }}</i>
+            {{ comment.comment_text | linebreaks }}
           </div>
           {% if not comment.approved and comment.user == user %}
           <p class="approval">
