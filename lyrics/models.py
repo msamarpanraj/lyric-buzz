@@ -11,31 +11,37 @@ class Lyric(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     lyric_writer = models.CharField(max_length=100)
     album = models.CharField(max_length=100)
-    featured_image = CloudinaryField('image', default='placeholder')
+    featured_image = CloudinaryField("image", default="placeholder")
     lyrics = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='added_lyrics')    
-    is_approved = models.BooleanField(default=False) 
-    likes = models.ManyToManyField(User, related_name='lyric_likes', blank=True) 
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="added_lyrics")
+    is_approved = models.BooleanField(default=False)
+    likes = models.ManyToManyField(
+        User, related_name="lyric_likes", blank=True)
 
     def total_likes(self):
         return self.likes.count()
 
     def __str__(self):
         return self.song_name
+
     class Meta:
         ordering = ["-created_on"]
 
     def __str__(self):
         return f"{self.song_name} | Posted by {self.user}"
 
+
 class Comment(models.Model):
     lyric = models.ForeignKey(
-        Lyric, on_delete=models.CASCADE, related_name="comments")
+        Lyric, on_delete=models.CASCADE, related_name="comments"
+    )
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="commenter")
+        User, on_delete=models.CASCADE, related_name="commenter"
+    )
     comment_text = models.TextField()
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -45,6 +51,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.comment_text} by {self.user}"
+
 
 class About(models.Model):
     title = models.CharField(max_length=200)
@@ -58,7 +65,7 @@ class About(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, blank=True)
-    profile_image = CloudinaryField('image', blank=True)
+    profile_image = CloudinaryField("image", blank=True)
 
     def __str__(self):
         return self.user.username

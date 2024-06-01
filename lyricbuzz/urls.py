@@ -23,8 +23,7 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
-    path("", include("lyrics.urls"), name="lyrics-urls"),  
-
+    path("", include("lyrics.urls"), name="lyrics-urls"),
 ]
 
 handler400 = 'lyrics.views.custom_bad_request'

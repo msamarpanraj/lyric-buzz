@@ -41,5 +41,5 @@ class ProfileForm(forms.ModelForm):
         widgets = {
             "bio": forms.Textarea(
                 attrs={"maxlength": "500"}
-            ), 
+            ),
         }
