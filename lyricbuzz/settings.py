@@ -163,6 +163,24 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.codeinstitute-ide.net"
 ]
 
+SUMMERNOTE_CONFIG = {
+    'iframe': True,
+    'width': '100%',
+    'height': '480',
+    'toolbar': [
+        ['style', ['style']],
+        ['font', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'clear']],
+        ['fontname', ['fontname']],
+        ['fontsize', ['fontsize']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['height', ['height']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture', 'video', 'hr']],
+        ['view', ['fullscreen', 'codeview']],
+        ['help', ['help']],
+    ],
+}
 
 handler400 = 'lyrics.views.custom_bad_request'
 handler403 = 'lyrics.views.custom_permission_denied'
