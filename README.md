@@ -145,7 +145,50 @@ Used the default bootstrap fonts
 ![color scheme](documentation/testing/black-chrom.png) 
 
 ### DataBase Diagram
-Image of the database diagram for your project, you can name your database models as well and how they are connected
+### Models for Lyric Buzz
+
+#### User Model
+The User model is built using Django's built-in authentication system. Each user is automatically assigned a profile through the Profile model.
+
+#### Profile
+| PK   | id (unique) | Type        | Notes             |
+|------|-------------|-------------|-------------------|
+| FK   | user        | OneToOne    | FK to User model  |
+|      | bio         | TextField   |                   |
+|      | profile_image | CloudinaryField | Optional  |
+
+#### Lyric
+| PK   | id (unique) | Type          | Notes                     |
+|------|-------------|---------------|---------------------------|
+|      | song_name   | CharField     |                           |
+|      | slug        | SlugField     | Unique                    |
+|      | lyric_writer | CharField    |                           |
+|      | album       | CharField     |                           |
+|      | featured_image | CloudinaryField | Default: placeholder |
+|      | lyrics      | TextField     |                           |
+|      | created_on  | DateTimeField | Auto add current time     |
+|      | updated_on  | DateTimeField | Auto update current time  |
+|      | status      | IntegerField  | Choices: Draft, Published, Submitted |
+| FK   | user        | ForeignKey    | FK to User model          |
+|      | is_approved | BooleanField  | Default: False            |
+| M2M  | likes       | ManyToMany    | M2M to User model         |
+
+#### Comment
+| PK   | id (unique) | Type          | Notes             |
+|------|-------------|---------------|-------------------|
+| FK   | lyric       | ForeignKey    | FK to Lyric model |
+| FK   | user        | ForeignKey    | FK to User model  |
+|      | comment_text | TextField    |                   |
+|      | approved    | BooleanField  | Default: False    |
+|      | created_on  | DateTimeField | Auto add current time |
+
+#### About
+| PK   | id (unique) | Type          | Notes                     |
+|------|-------------|---------------|---------------------------|
+|      | title       | CharField     | Unique                    |
+|      | profile_image | CloudinaryField | Default: placeholder |
+|      | updated_on  | DateTimeField | Auto update current time  |
+|      | content     | TextField     |                           |
 
 ## Features:
 Existing Features
