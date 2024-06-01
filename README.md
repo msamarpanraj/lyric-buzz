@@ -4,9 +4,6 @@
 
 See live site **[here](https://lyric-buzz-9522872a2b81.herokuapp.com/)**
 
-## Table Of Contents:
-
-
 ## Design & Planning:
 Project Title: Lyric Buzz
 
