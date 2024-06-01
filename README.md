@@ -5,29 +5,7 @@
 See live site **[here](https://lyric-buzz-9522872a2b81.herokuapp.com/)**
 
 ## Table Of Contents:
-1. [Design & Planning](#design-&-planning)
-    * [User Stories](#user-stories)
-    * [Wireframes](#wireframes)
-    * [Agile Methodology](#agile-methodology)
-    * [Typography](#typography)
-    * [Colour Scheme](#colour-scheme)
-    * [Database Diagram](#database-diagram)
-    
-2. [Features](#features)
-    * [Navigation](#Navigation-bar)
-    * [Footer](#footer)
-    * [Home page](#home-page)
-    * [add your pages](#)
-    * [Login page](#profile-page)
-    * [Sign up page](#signup-page)
 
-3. [Technologies Used](#technologies-used)
-4. [Libraries](#libraries-used)
-5. [Testing](#testing)
-6. [Bugs](#bugs)
-7. [Deployment](#deployment)
-8. [Credits](#credits)
-9. [Acknowledgment](#acknowledgment)
 
 ## Design & Planning:
 Project Title: Lyric Buzz
@@ -79,7 +57,7 @@ Users
 - As a user, I can add new lyrics so that I can contribute to the site (admin approval required).
 
 Admins
-- As an admin, I can approve or reject lyrics so that I can control the quality of content on the site.
+- As an admin, I can approve so that I can control the quality of content on the site.
 - As an admin, I can approve or reject comments so that I can maintain a positive community environment.
 - As an admin, I can manage all user content through the admin panel.
 
@@ -96,7 +74,7 @@ We used GitHub Projects to plan, track, and manage user stories, issues, and tas
 
 To prioritize tasks efficiently within the available time, we employed the MoSCoW method, supplemented by custom GitHub project labels.
 
-<img src="documentation/kanban.jpg" width="800">
+<img src="documentation/testing/screenshot-kanban.jpg" width="800">
 
 
 GitHub Issues
@@ -121,56 +99,196 @@ We decomposed our Epics into smaller stories before prioritizing and implementin
 This prioritization ensured that we focused on delivering the most critical features first while also planning for additional value-added tasks as time allowed.
 
 ### Typography
-Explain font you've used for your project
+Used the default bootstrap fonts
+
 ### Colour Scheme
-Screenshoot of the colour scheme for your project
+![color scheme](documentation/testing/black-chrom.png) 
+
 ### DataBase Diagram
 Image of the database diagram for your project, you can name your database models as well and how they are connected
 
 ## Features:
-Navigation Bar
+Existing Features
+
+#### Navigation
+
+**For Logged In Users**:
+![Pagination](documentation/testing/screenshot-nav-logged-in.jpg)
+
+- Home
+- About
+- All Lyrics
+- Add New Lyric
+- My Profile
+- Logout
+
+**For Logged Out Users**:
+![Pagination](documentation/testing/screenshot-nav-logged-out.jpg)
+
+- Home
+- About
+- All Lyrics
+- Register
+- Login
+
+**Search Field**:
+- A search field and button are available to search for lyrics.
+![Navigation](documentation/testing/screenshot-nav-search.jpg)
 
 Footer
 
-Home Page
-URL: Home
+All pages
 
-Description: The home page introduces the user to the site and allows them to search for lyrics.
-Features:
-Search Bar: Users can search for specific song lyrics.
-Recently Published Lyrics: Displays a list of the most recently added lyrics with details such as song name, posted by, album, lyric writer, and publication date.
-Navigation: Links to Home, About, All Lyrics, Register, and Login pages.
+- **Homepage**
+   
+    ![screenshot](documentation/testing/screenshot-home.jpg)
+
+- **Hero Section**: 
+  - Background image with a search field and button.
+  - Users can only click the search button after entering a query in the search field.
+![screenshot](documentation/testing/screenshot-home-hero-warning.jpg)
+
+- **Recently Published Lyrics**:
+  - Display of the most recently published lyrics.
+![Recently Published Lyrics](documentation/testing/screenshot-home-recently-published.jpg)
+
+- **Pagination**:
+  - Users can navigate through pages of lyrics.
+![Pagination](documentation/testing/screenshot-home-hero-pagination.jpg)
+
+
+
+#### About Page
+- **Introduction**:
+  - A brief introduction about the site and its purpose.
+![About Page](documentation/testing/screenshot-about-page.jpg)
+
+#### All Lyrics Page
+- **Lyrics List**:
+  - Display of all lyrics with pagination.
+  - Each lyric entry shows:
+    - Song Name
+    - Posted By
+    - Album
+    - Lyric Writer
+    - Published On
+![All Lyrics Page](documentation/testing/screenshot-all-lyrics-page.png)
+
+
+- **Lyric Details**:
+![Lyric Detail Page](documentation/testing/screenshot-lyric-detail.jpg)
+  - Clicking on a song takes the user to the individual lyric detail page with the same details.
+  ![Lyric Detail Page](documentation/testing/screenshot-meta.jpg)
+
+  - Users can like, unlike, and comment on lyrics if logged in.
+  - Comments are visible once approved by admin.
+  ![Lyric Detail Page](documentation/testing/screenshot-comments.jpg)
+
+  - Number of likes and comments are displayed.
+  ![Lyric Detail Page](documentation/testing/screenshot-like.jpg)
+
+  - Users can delete their own comments with a modal popup warning before deletion.
+  ![Lyric Detail Page](documentation/testing/screenshot-delete-warning.jpg)
+
+ - Users who did not logged in will see this at the comments area with a link to login page which redirects to previous page.
+  ![Lyric Detail Page](documentation/testing/screenshot-comments-logout.jpg)
+
+
+#### Register Page
+- **Registration Form**:
+  - Users can fill in their name, email (optional), and password twice to register.
+  - Error messages are displayed for mandatory fields if not filled.
+![Register Page](documentation/testing/screenshot-sign-up-error-warning.jpg)
+
+- **Post-Registration**:
+![Post-Registration](documentation/testing/Screenshot-post-login.jpg)
+  - Users are automatically logged in and redirected to the homepage.
+
+
+#### Login Page
+- **Login Form**:
+  - Users can enter their username and password to sign in.
+![Login Page](documentation/testing/screenshot-login-page.png)
+
+- **Post-Login**:
+![Post-Login](documentation/testing/Screenshot-post-login.jpg)
+  - Users are redirected to the homepage and can now see "Add New Lyric" and "My Profile" links in the navigation.
+
+#### Logout
+- **Logout Confirmation**:
+  - Clicking logout shows a confirmation page with a sign out button.
+  - Users are signed out after confirmation.
+![Logout Page](documentation/testing/screenshot-signout-warning.jpg)
+
+#### Add New Lyric
+- **New Lyric Form**:
+![Add New Lyric Page](documentation/testing/screenshot-submit-lyrics.jpg)
+
+  - Users can fill out a form to submit new lyrics.
+  - Submitted lyrics need admin approval to be visible on the website.
+![Add New Lyric Page](documentation/testing/screenshot-approval.jpg)
+
+#### Profile Page
+- **Profile Details**:
+![Profile Page](documentation/testing/screenshot-profile-page.jpg)
+
+  - Users can view and edit their profile, including bio and profile picture.
+![Update Profile Page](documentation/testing/screenshot-edit-profile.jpg)
+
+  - Alert message is displayed upon successful update.
+
+- **Published Lyrics**:
+![Update Profile Page](documentation/testing/screenshot-profile-options.jpg)
+  - Users can see all lyrics they have published.
+  - If a lyric is not yet published, it won't have a link.
+  - Users can edit or delete their lyrics.
+
+  ![Modal popup](documentation/testing/screenshot-warning-lyric.jpg)
+  - Modal popup for deletion confirmation.
+
+  ![Pagination](documentation/testing/pagination.jpg)
+  - Pagination is available if multiple lyrics are published.
+
+  ![Add lyrics link](documentation/testing/screenshot-profile-add-lyric.jpg)
+  - Message displayed if no lyrics are published with a link to add new lyrics.
+
+#### Search Functionality
+- **Search Button**:
+  - Error message if the search button is clicked without entering a query.
+  ![Search Warning](documentation/testing/screenshot-search-warning.jpg)
+
+  - Displays search results page with:
+    - Search Results
+    - Results for "query"
+    - Number of results found
+    - List of lyrics matching the search query
+![Search Functionality](documentation/testing/screenshot-search-results-page.jpg)
+
 ## Technologies Used
-List of technologies used for your project
+- [HTML](https://en.wikipedia.org/wiki/HTML) used for the main site content.
+- [CSS](https://en.wikipedia.org/wiki/CSS) used for the main site design and layout.
+- [Bootstrap](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
+- [JavaScript](https://www.javascript.com) used for user interaction on the site for automatically closing Django Messages and to handle the notification dropdown and notification delete functions.
+- [Python](https://www.python.org) used as the back-end programming language.
+- [Git](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
+- [GitHub](https://github.com) used for secure online code storage.
+- [Gitpod](https://gitpod.io) used as a cloud-based IDE for development.
+- [Markdown Builder by Tim Nelson](https://traveltimn.github.io/markdown-builder) used to help generate the Markdown files.
+- [Django](https://www.djangoproject.com) used as the Python framework for the site.
+- [PostgreSQL](https://www.postgresql.org) used as the relational database management.
+- [PostgreSQL from Code Institute](https://dbs.ci-dbs.net/) used as the Postgres database.
+- [Heroku](https://www.heroku.com) used for hosting the deployed back-end site.
+- [Cloudinary](https://cloudinary.com) used for online static file storage.
+- [Unsplash](https://www.unsplash.com/) used for images.
+- [Website Mockup Generator](https://websitemockupgenerator.com/) used to create the mockup image used in my readme.
+- [Gmail](https://www.google.com/gmail/about/) used to create an email address to send password reset emails from.
+- [Flaticon](https://www.flaticon.com/free-icons/lyrics) used to get the icons
+- [Balsamiq](https://balsamiq.com/wireframes) used to design my site wireframes.
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) used to check for typos in my README and TESTING files.
+
 ## Testing
-Important part of your README!!!
-### Google's Lighthouse Performance
-Screenshots of certain pages and scores (mobile and desktop)
-### Browser Compatibility
-Check compatability with different browsers (Firefox, Edge, Chrome)
-### Responsiveness
-Screenshots of the responsivness, pick few devices
-### Code Validation
-Validate your code HTML, CSS, JS & Python (Validate all your templates, static files, views, forms, models, urls), display screenshots
-### Manual Testing user stories
-Test all your user stories, you an create table 
-User Story |  Test | Pass
---- | --- | :---:
-paste here you user story | what is visible to the user and what action they should perform | &check;
-- attach screenshot
-### Manual Testing features
-Test all your features, you can use the same approach 
-| Status | feature
-|:-------:|:--------|
-| &check; | description
-- attach screenshot
-### Automated testing
-If you created automated tests, insert screenshoots of your coverage and number of tests
-## Bugs
-List of bugs and how did you fix them, you can create simple table
-| Bug | Fix
-|:-------:|:--------|
-|   |    |
+All testing results can be found here [TESTING.md](TESTING.md)
+
 ## Deployment
 This website is deployed to Heroku from a GitHub repository, the following steps were taken:
 
@@ -185,10 +303,10 @@ This website is deployed to Heroku from a GitHub repository, the following steps
 - Give the app a name(this must be unique) and select a **region** I chose **Europe** as I am in Europe, Then click **Create app**.
 
 #### Create a database On ElephantSQL
-- Log into the [ElephantSQL](https://www.elephantsql.com/) website and click **Create new Instance**
-- Enter a **Name** and keep the plan as **Tiny Turtle Free**, then **tags** field can be left blank, Select a region closest to you, I selected **EU-West-1(Ireland)** as I'm in Ireland. Then click **Review** and afterward click **create an instance**.
-- On The Dashboard click on your database instance name.
-- You will see the details for your database instance, in the URL section click on the copy icon to copy the database URL.
+- Log into the [PostgreSQL from Code Institute
+](https://dbs.ci-dbs.net/) website and enter your email and **click submit**
+- As soon as you sign up you will recieve a email with all the details about your PostgreSQL database.
+- You will find the postgres url, copy that.
 - Head over to gitpod and create a **Database URL** environment variable in your env.py file and set it equal to the copied URL.
 
 #### Deploying to Heroku.
@@ -199,6 +317,34 @@ This website is deployed to Heroku from a GitHub repository, the following steps
 - Below that in the **search for a repository to connect to** search box enter the name of your repository that you created on **GitHub** and click **connect**
 - Once it has been connected scroll down to the **Manual Deploy** and click **Deploy branch** when it has deployed you will see a **view app** button below and this will bring you to your newly deployed app.
 - Please note that when deploying manually you will have to deploy after each change you make to your repository.
+
+Heroku needs two additional files in order to deploy properly.
+- requirements.txt
+- Procfile
+
+You can install this project's **requirements** (where applicable) using:
+- `pip3 install -r requirements.txt`
+
+If you have your own packages that have been installed, then the requirements file needs updated using:
+- `pip3 freeze --local > requirements.txt`
+
+The **Procfile** can be created with the following command:
+- `echo web: gunicorn app_name.wsgi > Procfile`
+- *replace **app_name** with the name of your primary Django app name; the folder where settings.py is located*
+
+For Heroku deployment, follow these steps to connect your own GitHub repository to the newly created app:
+
+Either:
+- Select **Automatic Deployment** from the Heroku app.
+
+Or:
+- In the Terminal/CLI, connect to Heroku using this command: `heroku login -i`
+- Set the remote for Heroku: `heroku git:remote -a app_name` (replace *app_name* with your app name)
+- After performing the standard Git `add`, `commit`, and `push` to GitHub, you can now type:
+	- `git push heroku main`
+
+The project should now be connected and deployed to Heroku!
+
 ## Credits
 List of used resources for your website (text, images, snippets of code, projects....)
 ## Acknowledgment
