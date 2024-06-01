@@ -64,7 +64,47 @@ Admins
 You can see full user stories [here](https://github.com/users/msamarpanraj/projects/3) 
 
 ### Wireframes
-Attach wireframes in this section
+**Desktop Wireframes**
+
+- Home
+
+<img src="documentation/testing/wf-home-desk.png" width="600">
+
+
+- About
+
+<img src="documentation/testing/wf-wf-about-page-desk.png" width="600">
+
+
+- All Lyrics
+
+<img src="documentation/testing/wf-all-lyrics-desk.png" width="600">
+
+
+- Lyric Detail Page
+
+<img src="documentation/testing/wf-lyric-detail-page.png" width="600">
+
+
+- Add Lyric
+
+<img src="documentation/testing/wf-add-lyrics.png" width="600">
+
+
+- Profile
+
+<img src="documentation/testing/wf-profile-page-desk.png" width="600">
+
+
+**Mobile Wireframes**
+- Homepage
+
+<img src="documentation/testing/wf-home-mob.png" width="400">
+
+- All lyrics page
+
+<img src="documentation/testing/wf-all-lyrics-mobile.png" width="400">
+
 ### Agile Methodology
 
 GitHub Projects
@@ -346,6 +386,15 @@ Or:
 The project should now be connected and deployed to Heroku!
 
 ## Credits
-List of used resources for your website (text, images, snippets of code, projects....)
+
+- Code Institute's **I think therefor I blog**
+- Youtube videos, especially this video helped me to understand the search concept https://www.youtube.com/watch?v=HSrTYfB5gcc
+- Stackoverflow community
+
+
+
 ## Acknowledgment
-Mention people who helped you with your project(mentor, colleagues...)
+- I thank student support team for their continuos support. PP4 was a big challenge and with everyone's support I kept pushing and here I am.
+- Fellow students on the Slack community for their help and support.
+- My mentor for his guidance
+- My wife for her support
